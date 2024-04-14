@@ -3,7 +3,7 @@ import fs from "fs/promises";
 
 const productsPath = path.resolve("db", "db.json");
 
-const getData = async () => {
+export const getProducts = async () => {
   const data = await fs.readFile(productsPath);
   return JSON.parse(data);
 };
