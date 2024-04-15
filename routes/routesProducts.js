@@ -1,15 +1,12 @@
 import express from "express";
-import { getProducts } from "../services/serviceProducts.js";
+import { getProducts } from "../controllers/productsControllers.js";
 
 const productsRouter = express.Router();
 
-productsRouter.get("/", async (req, res) => {
-  try {
-    const products = await getProducts();
-    res.json(products);
-  } catch (error) {
-    next(error);
-  }
-});
+productsRouter.get("/", getProducts);
+
+productsRouter.get("/:id", getOneProduct);
+
+productsRouter.post("/");
 
 export default productsRouter;
