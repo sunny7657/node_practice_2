@@ -21,3 +21,18 @@ export const createProduct = async (body) => {
 
   return newProduct;
 };
+
+export const updateProduct = async (id, body) => {
+  const products = await getProducts();
+  const productIndex = products.findIndex((item) => item.id === id);
+
+  if (productIndex === -1) {
+    return null;
+  }
+
+  products[productIndex] = { ...products[productIndex], ...body };
+
+  await fs.writeFile(productsPath, JSON.stringify(products, null, 2));
+
+  return products[productIndex];
+};

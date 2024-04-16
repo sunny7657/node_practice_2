@@ -3,5 +3,35 @@
     "id": "bCE6FAnLGAl_KLYikG7bp",
     "name": "Phone",
     "price": 20
+  },
+  {
+    "id": "G3UThXQyvLToCOhjGCEIM",
+    "name": "fridge",
+    "price": 15
+  },
+  {
+    "id": "_3jhUUVhMoIxc3Xx7rwsc",
+    "name": "fridge",
+    "price": "20"
+  },
+  {
+    "id": "6UM9_6qLEi2oszh30WGdF",
+    "name": "fridge",
+    "price": "20"
+  },
+  {
+    "id": "aa3wHAaGMX7rSPkGYGcw4",
+    "name": "fridge",
+    "price": "20"
+  },
+  {
+    "id": "zmryJ7SJsefWelU69uM4w",
+    "name": "fridge",
+    "price": "20"
+  },
+  {
+    "id": "ItORnueLLhTdB77yQeZFv",
+    "name": "fridge",
+    "price": "20"
   }
 ]
