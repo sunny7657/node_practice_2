@@ -3,8 +3,12 @@ import productsRouter from "./routes/routesProducts.js";
 
 const app = express(); //create new instance
 
+app.use(express.json());
+
 app.use((req, res, next) => {
-  console.log(req.method);
+  console.log(req.body);
+  console.log(typeof req.body);
+
   next();
 });
 
