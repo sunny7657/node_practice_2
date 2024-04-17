@@ -36,3 +36,12 @@ export const updateProduct = async (id, body) => {
 
   return products[productIndex];
 };
+
+export const deleteProduct = async (id) => {
+  const products = await getProducts();
+  const productIndex = products.findIndex((item) => item.id === id);
+  if (productIndex === -1) {
+    return;
+  }
+  products.splice(productIndex, 1);
+};
