@@ -33,3 +33,5 @@ export const updateProduct = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteProduct = async (req, res, next) => {};

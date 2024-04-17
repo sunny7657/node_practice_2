@@ -41,7 +41,11 @@ export const deleteProduct = async (id) => {
   const products = await getProducts();
   const productIndex = products.findIndex((item) => item.id === id);
   if (productIndex === -1) {
-    return;
+    return null;
   }
   products.splice(productIndex, 1);
+
+  await fs.writeFile(productsPath, JSON.stringify(products, null, 2));
+
+  return products;
 };
