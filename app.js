@@ -1,5 +1,8 @@
 import express from "express";
 import productsRouter from "./routes/routesProducts.js";
+import mongoose from "mongoose";
+import { envConfig } from "./envConfig.js";
+import authRouter from "./routes/authRoutes.js";
 
 const app = express(); //create new instance
 
@@ -12,6 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/auth", authRouter);
 app.use("/products", productsRouter);
 
 app.use((req, res, next) => {
@@ -23,6 +27,14 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message });
 });
 
-app.listen(3000, () => {
-  console.log("Server is running. Use our API on port: 3000");
-});
+mongoose
+  .connect(envConfig.DB_HOST)
+  .then(() => {
+    app.listen(envConfig.PORT, () => {
+      console.log(`Server is running. Use our API on port ${envConfig.PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error.message);
+    process.exit(1);
+  });
