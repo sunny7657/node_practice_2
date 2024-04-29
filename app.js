@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import { envConfig } from "./envConfig.js";
 import authRouter from "./routes/authRoutes.js";
 
-const app = express(); //create new instance
+const app = express();
 
 app.use(express.json());
 
@@ -31,7 +31,7 @@ mongoose
   .connect(envConfig.DB_HOST)
   .then(() => {
     app.listen(envConfig.PORT, () => {
-      console.log(`Server is running. Use our API on port ${envConfig.PORT}`);
+      console.log(`Server is running. Use API on port ${envConfig.PORT}`);
     });
   })
   .catch((error) => {
